@@ -59,7 +59,7 @@ DATABASES = {
         'NAME': os.environ.get('POSTGRES_DB', 'kittygram'),
         'USER': os.environ.get('POSTGRES_USER', 'kittygram_user'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'kittygram_password'),
-        'HOST': 'db',
+        'HOST': os.environ.get('DB_HOST', 'db'),
         'PORT': 5432,
     }
 }
