@@ -17,16 +17,16 @@ services:
     env_file: .env
     volumes:
       - static:/backend_static
-      - media:/app/media
+      - media:/media
     depends_on:
       - db
 
   frontend:
     image: katrin7828/kittygram_frontend:latest
     env_file: .env
-    command: cp -r /app/build/. /static/
+    command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static:/static
+      - static:/frontend_static
 
   gateway:
     image: katrin7828/kittygram_gateway:latest
