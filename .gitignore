@@ -147,3 +147,4 @@ media/
 
 # Others
 node_modules
+.env
