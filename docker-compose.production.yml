@@ -24,7 +24,6 @@ services:
 
   frontend:
     image: katrin7828/kittygram_frontend:latest
-    restart: unless-stopped
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
