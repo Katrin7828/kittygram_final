@@ -16,6 +16,9 @@ services:
     image: katrin7828/kittygram_backend:latest
     restart: unless-stopped
     env_file: .env
+    command: >
+      sh -c "python manage.py collectstatic --noinput &&
+            gunicorn --bind 0.0.0.0:8000 kittygram_backend.wsgi"
     volumes:
       - static:/backend_static
       - media:/app/media
@@ -34,7 +37,7 @@ services:
     restart: unless-stopped
     env_file: .env
     ports:
-      - 9000:80
+      - "127.0.0.1:9000:80"
     volumes:
       - static:/static
       - media:/media
